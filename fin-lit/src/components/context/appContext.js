@@ -10,10 +10,9 @@ export const useAppContext = () => {
     const context = useContext(AppContext);
     if (!context) {
         throw new Error('useAppcontext must be within appContextProvider!');
-    };
+    }
     return context;
 };
-
 
 const AppContextProvider = ({ children, searchTerm }) => {
     const [videos, setVideos] = useState([]);
@@ -21,31 +20,29 @@ const AppContextProvider = ({ children, searchTerm }) => {
     const [chatbotResponse, setChatbotResponse] = useState("");
     const [isLoading, setIsLoading] = useState(false);
 
-    console.log("Current searchTerm:", searchTerm); 
+    console.log("Current searchTerm:", searchTerm);
 
     // Fetch video list on component mount or when searchTerm changes
     useEffect(() => {
         const fetchVideos = async () => {
             if (!searchTerm) {
                 console.error("Search term is undefined");
-                return; 
+                return;
             }
 
             try {
                 const response = await axios.get(`${YT_API_URL}&q=${encodeURIComponent(searchTerm)}&part=snippet&type=video&maxResults=16`);
                 console.log("API response", response.data);
-                setVideos(response.data.items); 
+                setVideos(response.data.items);
             } catch (error) {
                 console.error("Error fetching videos:", error);
             }
         };
 
         fetchVideos();
-    }, [searchTerm])
+    }, [searchTerm]);
 
-
-
-    //  chatbot
+    // Chatbot function
     const handleChatbot = async () => {
         setIsLoading(true);
         try {
@@ -81,7 +78,6 @@ const AppContextProvider = ({ children, searchTerm }) => {
             setIsLoading(false);
         }
     };
-
 
     return (
         <AppContext.Provider value={{ 
