@@ -31,6 +31,7 @@ const AppContextProvider = ({ children, searchTerm }) => {
             }
 
             try {
+                console.log('YT_API_KEY:', process.env.REACT_APP_YT_API_KEY);
                 const response = await axios.get(`${YT_API_URL}&q=${encodeURIComponent(searchTerm)}&part=snippet&type=video&maxResults=16`);
                 console.log("API response", response.data);
                 setVideos(response.data.items);

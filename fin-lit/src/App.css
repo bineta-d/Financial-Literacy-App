@@ -47,13 +47,13 @@ a{
 }
 
 
-.nav-bar{
+.navbar{
   background-color: #0e9577;
   font-size: 25px;
   padding: 10px 1vw;
   min-height: fit-content;
-  display: flex;
-  justify-content: center;
+  /* display: flex;
+  justify-content: center; */
  
 }
 .nav-list{
@@ -89,6 +89,7 @@ a{
   font-size: 45px;
   text-decoration: underline;
   
+  
 }
 .title{
   width: 100%;
@@ -109,14 +110,30 @@ a{
   /* background-color: #f1efb9; */
   align-items: center;
   align-content: center;
-  
+  width: 100%;
   /* margin: auto  auto; */
   padding: 2vh 2vw;
   padding-left: 10vw;
   
 }
-
-
+.topic-container{
+  padding: 20px;
+}
+@media (max-width: 768px) {
+  .topics-container {
+    grid-template-columns: 1fr; 
+    height: auto;
+    padding-left: 0;
+    justify-items:center;
+    align-items: center;
+    margin: 0 auto;
+    gap: 20px;
+  }
+  .topic-item {
+    width: 80vw; 
+    height: 25vh;  
+  }
+}
 .topic-item{
   position: relative;
   width : 35vh;
@@ -254,12 +271,32 @@ display: flex;
   margin: 10px;
 }
 
-.topic-container{
-  margin: 30px;
+.topics-container{
+  /* margin: 30px; */
   /* background-color: white; */
   padding: 30px;
   /* border: 2px solid black;  */
   align-items:center;
+  min-height: fit-content;
+  height: 100vh;
+  /* background-color: red; */
+  display: grid;
+  justify-content: center;
+  padding-left: 8vw;
+ 
+}
+.topics-container a{
+  text-decoration: none;
+}
+
+.topic-item{
+  height: 25vh;
+  width: 20vw;
+  background-image: url('/img/money.jpg');
+  background-position: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+
   
 }
 .topic-title{
@@ -345,6 +382,7 @@ letter-spacing: 2px;
   border-radius: 5px;
 
 }
+
 .topic-img5{
   height: 30vh;
   width: 15vw;

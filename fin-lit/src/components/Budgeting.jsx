@@ -2,11 +2,12 @@ import React from "react";
 import '../App';
 import { Link } from "react-router-dom";
 import { AppContextProvider, VideoList } from "./context/appContext";
+import CourseList from "./CourseList";
 
 const Budgeting = () => {
     return (
         <AppContextProvider searchTerm="budgeting for beginners">
-            <div className="topic-container"> 
+            <div className="topic-container" > 
                 <div className="topic-header">
                     <h1 className="topic-title">Budgeting</h1>
                     <div className="topic-description">
@@ -71,6 +72,8 @@ const Budgeting = () => {
                                 </ul>
                             </div> 
                         </div>
+
+
                     </div> 
                 </div>
 
@@ -78,6 +81,12 @@ const Budgeting = () => {
                     <h1 className="title">Explore Content</h1>
                     <VideoList />
                 </div> 
+
+
+                {/* CourseList */}
+                <div className="course-list-section">
+                    
+                </div>
             </div>
         </AppContextProvider>
     )
